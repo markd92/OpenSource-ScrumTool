@@ -1,0 +1,53 @@
+﻿@model OpenSourceScrumTool.Models.ViewModels.SprintSettingsTableViewModel
+
+<div>
+    @if (Model.Sprints.Any())
+    {
+        <table class="table table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th>Iteration</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Features</th>
+                    <th>&nbsp;</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var sprint in Model.Sprints.OrderBy(sprint => sprint.Iteration))
+                {
+                    <tr>
+                        <td>@sprint.Iteration</td>
+                        <td>@sprint.StartDate.Date.ToString("dd/MM/yyyy")</td>
+                        <td>@sprint.EndDate.Date.ToString("dd/MM/yyyy")</td>
+                        <td>@sprint.FeaturesCount</td>
+                        <td>
+                            @if (sprint.EndDate > DateTime.Now)
+                            {
+                                <a href="@Url.Action("EditSprint", "Sprint", new {id = @sprint.Id})" data-modal=""><i class="fa fa-pencil"></i></a>
+                            }
+                            @*<a href="@Url.Action("DeleteSprint", "Sprint", new { id = @sprint.Id })"> <i class="fa fa-trash"></i></a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="panel-body">
+            <div class="alert alert-info">
+                <strong>Heads up!</strong> There arn't any Sprints yet. This shouldn't happen, but in your case it has! Please click the Add Sprint button below.
+            </div>
+        </div>
+    }
+    <div class="btn-group pull-right">
+        @using (Html.BeginForm("CreateSprint", null, FormMethod.Post, new { id = "AddSprintForm", @class = "ignoreModalForm" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("id", Model.Id)
+            <input class="btn btn-primary" type="submit" value="Add Sprint">
+        }
+    </div>
+</div>

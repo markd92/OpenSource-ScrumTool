@@ -1,0 +1,16 @@
+﻿@model OpenSourceScrumTool.Models.ViewModels.HomeKnownIssuesViewModel
+
+@{
+    ViewBag.Title = "Known Issues";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>This site is in develpment and therefor is not complete.</p>
+<p>I have identified the following issues;</p>
+<ul>
+    @foreach (var knownIssue in Model.Issues)
+    {
+        <li>@knownIssue.Issue</li>
+    }
+</ul>

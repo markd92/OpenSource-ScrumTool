@@ -1,0 +1,81 @@
+﻿@using OpenSourceScrumTool.Extensions
+@using OpenSourceScrumTool.Hubs
+@using OpenSourceScrumTool.Models
+@model OpenSourceScrumTool.Models.ViewModels.TaskIndexViewModel
+
+@{
+    ViewBag.Title = "Tasks";
+}
+
+@Html.Action("DetailsPartial", "Projects", new { projectId = Model.ProjectId })
+@Html.Action("DetailsPartial", "Features", new { featureId = Model.FeatureId })
+
+<div class="panel panel-primary" id="TasksPanel">
+    <div class="panel-heading">Tasks</div>
+
+    <div class="panel-body pull-right">
+        @Html.ActionLink("Board View", "Index", new { id = Model.FeatureId, view = EnumTaskView.Board }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Add", "Create", new { id = Model.FeatureId }, new { data_modal = "", id = "btnCreate", @class = "btn btn-primary" })
+    </div>
+
+    <div class="clearfix"></div>
+
+    <ul class="table table-bordered table-hover sort-list" data-ordersave="SaveTaskOrder" data-bind="foreach: Tasks">
+
+        <li class="item" data-bind="attr : { 'data-id': Id() }">
+            <div class="clearfix" style="min-height: 50px;">
+                <div class="list-menu">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a data-bind="attr: { href: '@Url.Action("Edit")/' + Id() }" data-modal><i class="fa fa-wrench"></i> Edit</a></li>
+                            <li class="divider"></li>
+                            <li><a data-bind="attr: { href: '@Url.Action("Delete")/' + Id() }" data-modal><i class="fa fa-trash"></i> Delete</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-left: 47px;">
+                    <div class="col-xs-7 col-sm-7 col-md-8 col-lg-9" data-bind="text: Title"></div>
+                    <div class="col-xs-5 col-sm-5 col-md-2 col-lg-1 text-center pull-right">
+                        <span class="label label-danger" data-bind="if: State() == @((int)EnumTaskState.NotStarted)">Not Started</span>
+                        <span class="label label-warning" data-bind="if: State() == @((int)EnumTaskState.InProgress)">In Progress</span>
+                        <span class="label label-success" data-bind="if: State() == @((int)EnumTaskState.Done)">Done</span>
+                    </div>
+                    <div class="hidden-xs hidden-sm col-md-2 text-center" data-bind="if: State() != @((int)EnumTaskState.Done)">
+                        <span>
+                            <i class="fa fa-clock-o"></i>
+                            <span data-bind="text: TimeRemaining"></span> h.
+                        </span>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="text-muted">
+                            <small data-bind="html: Description"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@* ReSharper disable once StringLiteralWrongQuotes *@
+<script type="text/javascript">
+    (function (window, $, undefined) {
+        //Serialise model into json string
+        @{
+            Model.Tasks.ForEach(model => model.Title = HttpUtility.JavaScriptStringEncode(model.Title));
+            Model.Tasks.ForEach(model => model.Description = HttpUtility.JavaScriptStringEncode(model.Description));
+        }
+        var modelJson = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        //Parse model to apply and start monitoring
+        var obj = window.Scrum.LiveUpdate.ParseJson(modelJson);
+        window.Scrum.LiveUpdate.UpdateData("@ViewModelDataType.Task.DisplayName()", "@ActionType.Index.DisplayName()", obj);
+    })(window, jQuery.noConflict());
+</script>

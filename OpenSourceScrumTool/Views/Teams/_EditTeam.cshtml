@@ -1,0 +1,113 @@
+﻿@using OpenSourceScrumTool.Models.DataModels
+@model OpenSourceScrumTool.Models.ViewModels.TeamEditViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Edit Team</h3>
+</div>
+
+
+
+<div class="modal-body" style="padding-bottom: 0;">
+    <div class="alert alert-danger" style="display: none;" id="ErrorMessageAlert">
+        <strong>Oh snap!</strong> Something went wrong.<br/>
+        <div id="ErrorMessageText"></div>
+    </div>
+
+    <form data-ajax target="@Url.Action("UpdateTeamName")" method="POST" class="ignoreModalForm">
+        <div class="form-horizontal">
+            <input type="hidden" name="teamId" value="@Model.Id"/>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TeamName, htmlAttributes: new {@class = "control-label col-md-3"})
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.TeamName, new {htmlAttributes = new {@class = "form-control", data_ajax = ""}})
+                    @Html.ValidationMessageFor(model => model.TeamName, "", new {@class = "text-danger"})
+                </div>
+                <div class="col-md-2 text-center" style="padding-top: 5px;">
+                    <span class="ajax-loading" style="display: none;"><i class="fa fa-spinner fa-spin fa-2x"></i></span>
+                    <span class="ajax-success text-success" style="display: none;"><i class="fa fa-check-circle fa-2x"></i></span>
+                    <span class="ajax-error text-danger" style="display: none;"><i class="fa fa-times-circle fa-2x"></i></span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form data-ajax target="@Url.Action("UpdateTeamVelocity")" method="POST" class="ignoreModalForm">
+        <div class="form-horizontal">
+            <input type="hidden" name="teamId" value="@Model.Id" />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Velocity, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Velocity, new { htmlAttributes = new { @class = "form-control", data_ajax = "" } })
+                    @Html.ValidationMessageFor(model => model.Velocity, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-2 text-center" style="padding-top: 5px;">
+                    <span class="ajax-loading" style="display: none;"><i class="fa fa-spinner fa-spin fa-2x"></i></span>
+                    <span class="ajax-success text-success" style="display: none;"><i class="fa fa-check-circle fa-2x"></i></span>
+                    <span class="ajax-error text-danger" style="display: none;"><i class="fa fa-times-circle fa-2x"></i></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-header" style="padding-top: 5px;">
+    <h3>
+        Projects
+        <span class="pull-right">
+            <a class="btn btn-primary" href="@Url.Action("AddTeamProject", new { teamId = @Model.Id })" data-modal><i class="fa fa-plus-circle"></i> Add Projects</a>
+        </span>
+    </h3>
+</div>
+
+<div class="modal-body">
+    @foreach (var project in Model.Projects)
+    {
+        <div class="col-md-12">
+            <div class="col-md-10">
+                @project.ProjectName
+            </div>
+            <div class="col-md-2">
+                <a href="@Url.Action("RemoveTeamProject", new { teamId = @Model.Id, projectId = project.ProjectId })" data-modal><i class="fa fa-times-circle"></i></a>
+            </div>
+        </div>
+    }
+
+    <div class="clearfix"></div>
+</div>
+
+<div class="modal-header" style="padding-top: 5px;">
+    <h3>
+        Members
+        <span class="pull-right">
+            <a class="btn btn-primary" href="@Url.Action("AddTeamUser", new { teamId = @Model.Id })" data-modal><i class="fa fa-user-plus"></i> Add Users</a>
+        </span>
+    </h3>
+</div>
+
+<div class="modal-body">
+    @foreach (var member in Model.Members)
+    {
+        <div class="col-md-12">
+            <div class="col-md-10">
+                @member.Fullname - @member.RoleName
+            </div>
+            @if (member.Role != TeamMemberRole.Creator)
+            {
+                <div class="col-md-2">
+                    <a href="@Url.Action("RemoveTeamUser", new { teamId = @Model.Id, userId = member.UserId })" data-modal><i class="fa fa-user-times"></i></a>
+                </div>
+            }
+        </div>
+    }
+
+    <div class="clearfix"></div>
+</div>
+
+<div class="modal-footer">
+    <a class="btn btn-danger" href="@Url.Action("RemoveTeam", new { teamId = Model.Id })" data-modal>Delete Team</a>
+    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
+</div>
+
+<script>
+    jQuery.validator.unobtrusive.parse(jQuery("form"));
+</script>

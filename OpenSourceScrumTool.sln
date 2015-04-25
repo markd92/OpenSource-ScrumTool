@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSourceScrumTool", "OpenSourceScrumTool\OpenSourceScrumTool.csproj", "{48BB666F-C799-4C7A-8BB5-8EDC0A5388A0}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Design", "Design\Design.modelproj", "{71931FE2-C893-4211-B228-B25058BBBC00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumToolTests", "ScrumToolTests\ScrumToolTests.csproj", "{F504C2AD-A842-449F-8C38-C410A498393A}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://hostit123.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = OpenSourceScrumTool\\OpenSourceScrumTool.csproj
+		SccProjectName1 = OpenSourceScrumTool
+		SccLocalPath1 = OpenSourceScrumTool
+		SccProjectUniqueName2 = Design\\Design.modelproj
+		SccProjectName2 = Design
+		SccLocalPath2 = Design
+		SccProjectUniqueName3 = ScrumToolTests\\ScrumToolTests.csproj
+		SccProjectName3 = ScrumToolTests
+		SccLocalPath3 = ScrumToolTests
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48BB666F-C799-4C7A-8BB5-8EDC0A5388A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48BB666F-C799-4C7A-8BB5-8EDC0A5388A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48BB666F-C799-4C7A-8BB5-8EDC0A5388A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48BB666F-C799-4C7A-8BB5-8EDC0A5388A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71931FE2-C893-4211-B228-B25058BBBC00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71931FE2-C893-4211-B228-B25058BBBC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71931FE2-C893-4211-B228-B25058BBBC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71931FE2-C893-4211-B228-B25058BBBC00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F504C2AD-A842-449F-8C38-C410A498393A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F504C2AD-A842-449F-8C38-C410A498393A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F504C2AD-A842-449F-8C38-C410A498393A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F504C2AD-A842-449F-8C38-C410A498393A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

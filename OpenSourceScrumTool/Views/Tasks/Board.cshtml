@@ -1,0 +1,89 @@
+﻿@using System.Linq
+@using OpenSourceScrumTool.Extensions
+@using OpenSourceScrumTool.Hubs
+@using OpenSourceScrumTool.Models
+@using OpenSourceScrumTool.Models.ViewModels
+@model OpenSourceScrumTool.Models.ViewModels.TaskIndexViewModel
+
+@{
+    ViewBag.Title = "Tasks";
+}
+
+@Html.Action("DetailsPartial", "Projects", new { projectId = Model.ProjectId })
+@Html.Action("DetailsPartial", "Features", new { featureId = Model.FeatureId })
+
+<div class="panel panel-primary" id="TasksPanel">
+    <div class="panel-heading">Tasks</div>
+
+    <div class="panel-body pull-right">
+        @Html.ActionLink("List View", "Index", new { id = Model.FeatureId, view = EnumTaskView.List }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Add", "Create", new { id = Model.FeatureId }, new { data_modal = "", id = "btnCreate", @class = "btn btn-primary" })
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="panel-body">
+        @foreach (var taskState in Enum.GetValues(typeof(EnumTaskState)).Cast<EnumTaskState>())
+        {
+            <div class="col-md-4">
+                @{
+            var panelClass = taskState == EnumTaskState.NotStarted ? "panel-danger"
+                : taskState == EnumTaskState.InProgress ? "panel-warning"
+                    : "panel-success";
+                }
+                <div class="panel @panelClass">
+                    <div class="panel-heading">@taskState.DisplayName()</div>
+
+                    <div class="panel-body">
+                        <ul class="table table-bordered table-hover sort-list board-view" data-ordersave="SaveTaskOrderState" data-columnstate="@Html.Raw((int) taskState)" data-bind="foreach: @Html.Raw("Tasks" + taskState.ToString())">
+                            <li class="item" data-bind="attr : { 'data-id': Id() }">
+                                <div class="clearfix" style="min-height: 50px;">
+                                    <div class="list-menu">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a data-bind="attr: { href: '@Url.Action("Edit")/' + Id() }" data-modal><i class="fa fa-wrench"></i> Edit</a></li>
+                                                <li class="divider"></li>
+                                                <li><a data-bind="attr: { href: '@Url.Action("Delete")/' + Id() }" data-modal><i class="fa fa-trash"></i> Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div style="margin-left: 47px;">
+                                        <div class="col-md-12" data-bind="text: Title"></div>
+                                        <div class="col-md-12 text-muted">
+                                            <small data-bind="html: Description"></small>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@* ReSharper disable once StringLiteralWrongQuotes *@
+<script type="text/javascript">
+    (function (window, $, undefined) {
+        //Serialise model into json string
+        @{
+            Model.Tasks.ForEach(model => model.Title = HttpUtility.JavaScriptStringEncode(model.Title));
+            Model.Tasks.ForEach(model => model.Description = HttpUtility.JavaScriptStringEncode(model.Description));
+        }
+        var modelJson = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        //Parse model to apply and start monitoring
+        var obj = window.Scrum.LiveUpdate.ParseJson(modelJson);
+        window.Scrum.LiveUpdate.UpdateData("@ViewModelDataType.Task.DisplayName()", "@ActionType.Index.DisplayName()", obj);
+    })(window, jQuery.noConflict());
+</script>

@@ -1,0 +1,50 @@
+﻿@using OpenSourceScrumTool.Extensions
+@using OpenSourceScrumTool.Hubs
+@model OpenSourceScrumTool.Models.ViewModels.ProjectDetailsViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="panel panel-default panel-dismissable" data-panel-details="Project">
+    <div class="panel-heading">
+        @Html.ActionLink("Project", "Index", "Projects")
+        <button type="button" class="close" data-dismiss="panel">×</button>
+        <button type="button" class="close show-btn" style="display: none;"><span class="caret"></span></button>
+    </div>
+
+    <div class="panel-body">
+        <div class="col-md-6">
+            <h4 data-bind="text: @Html.NameFor(m=>m.Title)"></h4>
+        </div>
+        <div class="col-md-2">
+            @* Display number of features with incomplete tasks *@
+            <h5><strong data-bind="text: @Html.NameFor(m => m.IncompleteFeaturesCount)"></strong> feature(s) incomplete</h5>
+        </div>
+        <div class="col-md-2">
+            @* Display number of features with incomplete tasks *@
+            <h5><strong data-bind="text: @Html.NameFor(m => m.CompleteFeaturesCount)"></strong> feature(s) complete</h5>
+        </div>
+        <div class="col-md-2">
+            <h5><strong data-bind="text: @Html.NameFor(m => m.HoursRemaining)"></strong> hour(s) remaining</h5>
+        </div>
+        <div class="col-md-12">
+            <p data-bind="html: @Html.NameFor(m => m.Description)"></p>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once StringLiteralWrongQuotes *@
+<script type="text/javascript">
+    (function (window, $, undefined) {
+        //Serialise model into json string
+        @{
+            Model.Title = HttpUtility.JavaScriptStringEncode(Model.Title);
+            Model.Description = HttpUtility.JavaScriptStringEncode(Model.Description);
+        }
+        var modelJson = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        //Parse model to apply and start monitoring
+        var obj = window.Scrum.LiveUpdate.ParseJson(modelJson);
+        window.Scrum.LiveUpdate.UpdateData("@ViewModelDataType.Project.DisplayName()", "@ActionType.Details.DisplayName()", obj);
+    })(window, jQuery.noConflict());
+</script>

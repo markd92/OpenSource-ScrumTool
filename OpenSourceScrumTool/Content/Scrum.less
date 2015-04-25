@@ -1,0 +1,144 @@
+﻿.sort-list {
+    list-style: none;
+    border-top: 1px solid #ecf0f1;
+    padding: 0;
+    min-height: 59px;
+
+    .item {
+        width: 100%;
+        position: relative;
+        padding-top: 8px;
+        border-top: 1px solid #ecf0f1;
+        background: white;
+
+        .list-menu {
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            border-right: 1px solid #ecf0f1;
+            width: 48px;
+            padding-top: 8px;
+        }
+
+        .label {
+            font-size: 100%;
+            float: right;
+        }
+
+        &.planning-possibleFeatures {
+            background-color: #69d3bf;
+            background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+            background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+            background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+            -webkit-background-size: 40px 40px;
+            background-size: 40px 40px;
+
+            .text-muted {
+                color: #2c3e50;
+            }
+        }
+    }
+
+    .sortable-ghost {
+        background-color: rgba(0, 0, 0, 0.55);
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 1), inset 3px 3px 3px rgba(0, 0, 0, 0.5);
+
+        div {
+            opacity: 0;
+        }
+    }
+
+    &.sprint-list {
+        border-top: none;
+
+        &[data-state="NotStarted"] {
+            .item {
+                background: #ef8b80;
+            }
+
+            .item:after {
+                border-color: #ef8b80;
+            }
+
+            .item:before {
+                border-color: #e74c3c transparent;
+            }
+
+            .btn {
+                color: #ffffff;
+                background-color: #e74c3c;
+                border-color: #e74c3c;
+            }
+        }
+
+        &[data-state="InProgress"] {
+            .item {
+                background: #f7bf65;
+            }
+
+            .item:after {
+                border-color: #f7bf65;
+            }
+
+            .item:before {
+                border-color: #f39c12 transparent;
+            }
+
+            .btn {
+                color: #ffffff;
+                background-color: #f39c12;
+                border-color: #f39c12;
+            }
+        }
+
+        &[data-state="Done"] {
+            .item {
+                background: #69d3bf;
+            }
+
+            .item:after {
+                border-color: #69d3bf;
+            }
+
+            .item:before {
+                border-color: #18bc9c transparent;
+            }
+
+            .btn {
+                color: #ffffff;
+                background-color: #18bc9c;
+                border-color: #18bc9c;
+            }
+        }
+
+        .item {
+            padding: 5px;
+            position: relative;
+            min-height: 30px;
+            margin-bottom: 2em;
+        }
+
+        .item:after {
+            content: "";
+            position: absolute;
+            bottom: -2em;
+            left: 0;
+            right: 2em;
+            border: 1em solid;
+        }
+
+        .item:before {
+            content: "";
+            position: absolute;
+            bottom: -2em;
+            right: 0;
+            border-width: 2em 2em 0 0;
+            border-style: solid;
+        }
+
+        .sortable-ghost {
+            padding-bottom: 2em;
+        }
+    }
+}

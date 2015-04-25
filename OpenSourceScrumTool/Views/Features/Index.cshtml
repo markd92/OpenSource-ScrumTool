@@ -1,0 +1,182 @@
+﻿@using OpenSourceScrumTool.Extensions
+@using OpenSourceScrumTool.Hubs
+@using OpenSourceScrumTool.Models
+@model OpenSourceScrumTool.Models.ViewModels.FeatureIndexViewModel
+
+@{
+    ViewBag.Title = "Features";
+}
+
+@Html.Action("DetailsPartial", "Projects", new { projectId = Model.ProjectId })
+
+<div class="panel panel-primary" id="FeaturesPanel" data-bind="attr: { 'data-project': ProjectId }" data-save="SetupSprint">
+    <div class="panel-heading">Features</div>
+
+    <div class="panel-body pull-right">
+        <div class="btn-group">
+            <!-- ko if: FilterState() != null -->
+            <a href="#" class="btn btn-primary disabled">
+                <span data-bind="if: FilterState() == @((int)EnumTaskState.NotStarted)">@EnumTaskState.NotStarted.DisplayName()</span>
+                <span data-bind="if: FilterState() == @((int)EnumTaskState.InProgress)">@EnumTaskState.InProgress.DisplayName()</span>
+                <span data-bind="if: FilterState() == @((int)EnumTaskState.Done)">@EnumTaskState.Done.DisplayName()</span>
+            </a>
+            <!-- /ko -->
+            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fa fa-filter"></i>&nbsp;<span class="caret"></span></a>
+            @* This needs to be changed *@
+            <ul class="dropdown-menu">
+                <!-- ko if: FilterState() != null -->
+                <li><a href="#" data-bind="click: function(){ window.Scrum.LiveUpdate.ViewTypes.Feature.Index.Model.FilterState(null); }">Reset</a></li>
+                <li class="divider"></li>
+                <!-- /ko -->
+                <li><a href="#" data-bind="click: function(){ window.Scrum.LiveUpdate.ViewTypes.Feature.Index.Model.FilterState(@((int)EnumTaskState.NotStarted)); }">@EnumTaskState.NotStarted.DisplayName()</a></li>
+                <li><a href="#" data-bind="click: function(){ window.Scrum.LiveUpdate.ViewTypes.Feature.Index.Model.FilterState(@((int)EnumTaskState.InProgress)); }">@EnumTaskState.InProgress.DisplayName()</a></li>
+                <li><a href="#" data-bind="click: function(){ window.Scrum.LiveUpdate.ViewTypes.Feature.Index.Model.FilterState(@((int)EnumTaskState.Done)); }">@EnumTaskState.Done.DisplayName()</a></li>
+            </ul>
+        </div>
+        <div class="btn-group">
+            <!-- ko if: FilterSprint() != null -->
+            <a data-bind="text: 'Sprint ' + FilterSprintIteration()" href="#" class="btn btn-primary disabled"></a>
+            <!-- /ko -->
+            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>&nbsp;<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <!-- ko if: FilterSprint() != null -->
+                <li><a href="#" data-bind="click: function(){ window.Scrum.LiveUpdate.ViewTypes.Feature.Index.Model.FilterSprint(null); }">Reset</a></li>
+                <li class="divider"></li>
+                <!-- /ko -->
+                <!-- ko if: CurrentSprintId -->
+                <li><a href="#" data-bind="click: function(){ window.Scrum.LiveUpdate.ViewTypes.Feature.Index.Model.FilterSprint(CurrentSprintId()); }">Current Sprint</a></li>
+                <li class="divider"></li>
+                <!-- /ko -->
+                <!-- ko foreach: Sprints -->
+                <li><a href="#" data-bind="click: function(){ window.Scrum.LiveUpdate.ViewTypes.Feature.Index.Model.FilterSprint(Id()); }">Sprint <span data-bind="text: Iteration()"></span></a></li>
+                <!-- /ko -->
+                <li class="divider"></li>
+                <li>
+                    @* This can render here as the projectId can't change *@
+                    <a href="@Url.Action("SprintSettings", "Sprint", new {id = Model.ProjectId})" data-modal=""><i class="fa fa-wrench"></i> Manage Sprints</a>
+                </li>
+            </ul>
+        </div>
+        <a href="#" class="btn btn-warning disabled" data-action="PlanningTool" data-bind="attr: { 'data-team-velocity': TeamVelocity() }">Planning</a>
+        <a href="#" class="btn btn-success" data-action="PlanningToolAddToSprint" style="display: none;">Add to <span data-planning="sprintName">this</span> Sprint (Weight <span data-planning="sprintWeight">0</span>)</a>
+        @* Again this can render here as the projectId can't change *@
+        @Html.ActionLink("Add Feature", "Create", new { id = Model.ProjectId }, new { data_modal = "", id = "btnCreate", @class = "btn btn-primary" })
+    </div>
+
+    <div class="clearfix"></div>
+    <div data-bind="if: FilteredList().length > 0"> @* TODO: Change to filtered & sorted list *@
+        <ul class="table table-bordered table-hover sort-list" data-ordersave="SaveFeatureOrder" data-bind="foreach: { data: FilteredList, afterRender: AfterRenderHandler }"> @* TODO: Change to filtered & sorted list *@
+            <li class="item" data-bind="attr : { 'data-id': Id(), 'data-state': State(), 'data-in-current-sprint': InCurrentSprint(), 'data-weight': Weight() }">
+                <div class="clearfix" style="min-height: 50px;">
+                    <div class="list-menu">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                                <span class="caret"></span>
+                            </button>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li data-bind="if: $parent.FilterSprint() != null">
+                                    <a data-bind="attr: { href: '@Url.Action("RemoveFromSprint")?SprintId=' + $parent.FilterSprint() + '&' + 'FeatureId=' + Id() }">Remove from sprint</a>
+                                </li>
+                                <li data-bind="if: $parent.CurrentSprintId != null && State() != @((int)EnumTaskState.Done) && !InCurrentSprint()">
+                                    <a data-bind="attr: { href: '@Url.Action("AddToSprint")?SprintId=' + $parent.CurrentSprintId() + '&' + 'FeatureId=' + Id() }" class="addToSprint">Add to Sprint</a>
+                                </li>
+                                <li><a data-bind="attr: { href: '@Url.Action("Index", "Tasks")/Index/' + Id() }" class="manage-btn"><i class="fa fa-list"></i> Tasks</a></li>
+                                <li><a data-bind="attr: { href: '@Url.Action("Edit")/' + Id() }" data-modal><i class="fa fa-pencil"></i> Edit</a></li>
+                                <li class="divider"></li>
+                                <li><a data-bind="attr: { href: '@Url.Action("Delete")/' + Id() }" data-modal><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="margin-left: 47px;">
+                        <div class="col-xs-7 col-sm-7 col-md-9 col-lg-9" data-bind="text: Title"></div>
+                        <div class="col-xs-5 col-sm-5 col-md-2 col-lg-1 text-center pull-right">
+                            <span class="label label-danger" data-bind="if: State() == @((int)EnumTaskState.NotStarted)">Not Started</span>
+                            <span class="label label-warning" data-bind="if: State() == @((int)EnumTaskState.InProgress)">In Progress</span>
+                            <span class="label label-success" data-bind="if: State() == @((int)EnumTaskState.Done)">Done</span>
+                        </div>
+                        <div class="hidden-xs hidden-sm col-md-1 col-lg-2 text-center" style="padding-left: 0;">
+                            <span>
+                                <i class="fa fa-pie-chart visible-md-inline"></i>
+                                <span class="hidden-md">Weight:</span>
+                                <span data-bind="if: Weight() == 0.5">1/2</span>
+                                <span data-bind="if: Weight() == -1">?</span>
+                                <span data-bind="if: Weight() != 0.5 && Weight() != -1"><span data-bind="text: Weight()"></span></span>
+                            </span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="text-muted">
+                                <small data-bind="html: Description"></small>
+                            </div>
+                        </div>
+                        <div class="col-md-12 hidden-xs" data-bind="if: ContainsTasks">
+                            <div class="progress" style="margin-bottom: 5px; margin-top: 5px;">
+                                <div class="progress-bar progress-bar-success" data-bind="style : { width: DoneTasksPercentage() + '%' }">
+                                    <span data-bind="if: DoneTasksPercentage() > 5"><span data-bind="text: Math.round(DoneTasksPercentage()) + '%'"></span></span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" data-bind="style : { width: InProgressTasksPercentage() + '%' }">
+                                    <span data-bind="if: InProgressTasksPercentage() > 5"><span data-bind="text: Math.round(InProgressTasksPercentage()) + '%'"></span></span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" data-bind="style : { width: NotStartedTasksPercentage() + '%' }">
+                                    <span data-bind="if: NotStartedTasksPercentage() > 5"><span data-bind="text: Math.round(NotStartedTasksPercentage()) + '%'"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-body" data-bind="if: FilteredList().length == 0">@* TODO: Change to filtered & sorted list *@
+        <div class="alert alert-info">
+            <!-- ko if: FilterState() != null -->
+            <!-- ko if: FilterSprint() != null -->
+            <p>
+                <strong>Heads up!</strong> We can't find any features matching your search.
+                <br />Try changing the sprint or state filter.
+            </p>
+            <!-- /ko -->
+            <!-- ko ifnot: FilterSprint() != null -->
+            <p>
+                <strong>Heads up!</strong> We can't find any features in this state.
+                <br />Try changing the filter.
+            </p>
+            <!-- /ko -->
+            <!-- /ko -->
+            <!-- ko ifnot: FilterState() != null -->
+            <!-- ko if: FilterSprint() != null -->
+            <p>
+                <strong>Heads up!</strong> We can't find any features in this sprint.
+                <br />Try adding one using the planning tool.
+            </p>
+            <!-- /ko -->
+            <!-- ko ifnot: FilterSprint() != null -->
+            <p>
+                <strong>Heads up!</strong> We can't find any features in this project.
+                <br />Try adding one using the button above.
+            </p>
+            <!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Scrum/Planning.js")
+}
+
+@* ReSharper disable once StringLiteralWrongQuotes *@
+<script type="text/javascript">
+    (function (window, $, undefined) {
+        //Serialise model into json string
+        @{
+            Model.Features.ForEach(model => model.Title = HttpUtility.JavaScriptStringEncode(model.Title));
+            Model.Features.ForEach(model => model.Description = HttpUtility.JavaScriptStringEncode(model.Description));
+        }
+        var modelJson = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        //Parse model to apply and start monitoring
+        var obj = window.Scrum.LiveUpdate.ParseJson(modelJson);
+        window.Scrum.LiveUpdate.UpdateData("@ViewModelDataType.Feature.DisplayName()", "@ActionType.Index.DisplayName()", obj);
+    })(window, jQuery.noConflict());
+</script>

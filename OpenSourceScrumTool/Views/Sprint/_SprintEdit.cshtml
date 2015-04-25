@@ -1,0 +1,176 @@
+﻿@model OpenSourceScrumTool.Models.ViewModels.SprintEditViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Edit Sprint</h4>
+</div>
+
+
+@using (Html.BeginForm("EditSprint", "Sprint"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+        @if (!String.IsNullOrEmpty(Model.Error))
+        {
+            <div class="alert alert-dismissable alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>Oh snap!</strong> Something went wrong.<br />
+                @Html.Raw(Model.Error)
+            </div>
+        }
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="col-md-12">
+            Sprint Duration: @Model.SprintDuration Week(s)
+        </div>
+
+        <div class="col-md-12">
+            <div class="text-center">
+                <a id="fix-sprint" href="#"><i class="fa fa-unlock"></i></a>
+                <a id="unfix-sprint" href="#"><i class="fa fa-lock"></i></a>
+            </div>
+        </div>
+        
+        @* Note: we shouldn't be able to edit sprints that have completely finished *@
+
+        @if (Model.StartDate > DateTime.Now) //Sprint not yet reached
+        {
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.StartDate)
+                <div id="startDatePicker" data-date="@Model.StartDate.ToString("MM-dd-yyyy")" data-not-before="@ViewBag.notBefore"></div>
+                @Html.HiddenFor(model => model.StartDate)
+                @Html.ValidationMessageFor(model => model.StartDate, "", new {@class = "text-danger"})
+            </div>
+        }
+        else
+        {
+            <div class="form-group col-md-6">
+                <div class="text-center">
+                    Start Date: @Model.StartDate.ToString("MM-dd-yyyy")
+                    @Html.HiddenFor(sprint => sprint.StartDate)
+                </div>
+            </div>
+        }
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.EndDate)
+            <div id="endDatePicker" data-date="@Model.EndDate.ToString("MM-dd-yyyy")"></div>
+            @Html.HiddenFor(model => model.EndDate)
+            @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+        <input class="btn btn-primary" type="submit" value="Save" />
+    </div>
+}
+
+<script>
+    //code for toggle lock here
+    (function (window, $, undefined) {
+        var fix = $("#fix-sprint");
+        var unfix = $("#unfix-sprint");
+        var fixed = true;
+        var sprintLength = @Model.SprintDuration;
+
+        //Hide the fix button by default
+        fix.hide();
+
+        unfix.click(function() {
+            fixed = false;
+            unfix.hide();
+            fix.show();
+        });
+        fix.click(function () {
+            fixed = true;
+            fix.hide();
+            unfix.show();
+        });
+
+        var startPicker = $("#startDatePicker").datepicker();
+        startPicker.datepicker("setDate", startPicker.data("date"));
+        var notBefore = moment(startPicker.data("not-before"), "MM-DD-YYYY");
+        console.log(notBefore);
+        var startInput = $("#StartDate");
+        var endPicker = $("#endDatePicker").datepicker();
+        endPicker.datepicker("setDate", endPicker.data("date"));
+        var endInput = $("#EndDate");
+
+        //hack to prevent overflow
+        var fromSet = false;
+
+        var startError = null;
+        startPicker.on("changeDate", function(e) {
+            var selectedDate = moment(e.date);
+            startInput.val(selectedDate.format("DD/MM/YYYY"));
+
+            if (startError != null)
+                removeError(startError);
+            if (selectedDate.isBefore(notBefore))
+                startError = addError("Start date cannot be before " + notBefore.format("DD/MM/YYYY"));
+
+            if (fromSet){ //hack to prevent overflow
+                fromSet = false;
+                return;
+            }
+
+            if (fixed) {
+                var endDate = moment(selectedDate).add(sprintLength, "weeks");
+                fromSet = true;//hack to prevent overflow
+                endPicker.datepicker("setDate", endDate._d);
+            }
+
+
+        });
+        endPicker.on("changeDate", function (e) {
+            var selectedDate = moment(e.date);
+            endInput.val(selectedDate.format("DD/MM/YYYY"));
+
+            if (fromSet){ //hack to prevent overflow
+                fromSet = false;
+                return;
+            }
+
+            if (fixed) {
+                var startDate = moment(selectedDate).subtract(sprintLength, "weeks");
+                fromSet = true;//hack to prevent overflow
+                startPicker.datepicker("setDate", startDate._d);
+            }
+        });
+        var errors = [];
+        function addError(message) {
+            var bubble = document.createElement("div");
+            bubble.classList.add("alert", "alert-danger", "alert-dismissible");
+            $(bubble).append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>");
+            $(bubble).append(message);
+            $(".modal-body").prepend(bubble);
+            errors.push(bubble);
+            $("[type=\"submit\"][value=\"Save\"]").prop("disabled", true);
+            return bubble;
+        }
+        function removeError(bubble) {
+            bubble.remove();
+            errors = jQuery.grep(errors, function(value) {
+                return value != bubble;
+            });
+            if (errors.length == 0) {
+                //unlock save button
+                $("[type=\"submit\"][value=\"Save\"]").prop("disabled", false);
+            }
+        }
+    })(window, jQuery.noConflict());
+
+    jQuery.validator.unobtrusive.parse(jQuery("form"));
+</script>
+
+<script>
+    try {
+        window.Scrum.Sprint.BindDialogEvent(document);
+    } catch (e) {
+        console.log(e);
+    }
+</script>

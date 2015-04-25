@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2015-04-23T15:18:18" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '416c6b26-0267-4c43-bca0-0547e841e2f2' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '56411d1b-aba8-4518-a3b2-61d85f84bf02' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '95278a91-e0ee-41e5-ac79-c18b654bfb90' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::Microsoft' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::Microsoft::AspNet' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::Microsoft::AspNet::Identity' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::Microsoft::AspNet::Identity::EntityFramework' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::Microsoft::AspNet::Identity::EntityFramework::IdentityUser' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::Microsoft::AspNet::Identity::UserManager' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::Microsoft::AspNet::Identity::UserManager&lt;ApplicationUser‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Medium" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::ApplicationUser' -  (Class)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::ApplicationUser::ApplicationUser' -  (Operation)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::ApplicationUser::Colleagues' -  (Property)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::ApplicationUser::ColleaguesToMe' -  (Property)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::ApplicationUser::Fullname' -  (Property)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::ApplicationUser::GenerateUserIdentityAsync' -  (Operation)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::ApplicationUser::GenerateUserIdentityAsync::manager' -  (Parameter)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::ApplicationUser::PreferedView' -  (Property)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::ApplicationUser::Projects' -  (Property)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::ApplicationUser::Teams' -  (Property)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::DataModels' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::DataModels::Project' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::DataModels::TeamMember' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::DataModels::UserColleagues' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::OpenSourceScrumTool::Models::EnumTaskView' -  (Enumeration)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Collections' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Collections::Generic::ICollection' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Collections::Generic::ICollection&lt;Project‎&gt;' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Collections::Generic::ICollection&lt;TeamMember‎&gt;' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Collections::Generic::ICollection&lt;UserColleagues‎&gt;' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Security' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Security::Claims' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Security::Claims::ClaimsIdentity' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Threading' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Threading::Tasks' -  (Package)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Threading::Tasks::Task' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Design::System::Threading::Tasks::Task&lt;ClaimsIdentity‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Design::OpenSourceScrumTool::Models::ApplicationUser to Design::System::Collections::Generic::ICollection&lt;UserColleagues‎&gt; (Association)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Design::OpenSourceScrumTool::Models::ApplicationUser to Design::System::Collections::Generic::ICollection&lt;UserColleagues‎&gt; (Association)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Design::OpenSourceScrumTool::Models::ApplicationUser to Design::System::Collections::Generic::ICollection&lt;TeamMember‎&gt; (Association)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Design::OpenSourceScrumTool::Models::ApplicationUser to Design::System::Collections::Generic::ICollection&lt;Project‎&gt; (Association)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Design::OpenSourceScrumTool::Models::ApplicationUser to Design::OpenSourceScrumTool::Models::EnumTaskView (Association)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: Design::OpenSourceScrumTool::Models::ApplicationUser to Design::Microsoft::AspNet::Identity::EntityFramework::IdentityUser (Generalization)" />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="High" Text="(1) type(s) fully reverse engineered." />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="High" Text="(14) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2015-04-23T15:18:20" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>

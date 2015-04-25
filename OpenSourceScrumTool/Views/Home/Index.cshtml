@@ -1,0 +1,20 @@
+﻿@using System.Web
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Scrum</h1>
+    <p class="lead">Scrum is a framework for developing software, using this website will help you manage your projects and their backlogs. You can read more about Scrum at Scrum Guides.</p>
+    <p><a href="http://scrumguides.org/" class="btn btn-primary btn-lg" target="_blank">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Getting started</h2>
+        <p>
+            Start by creating a Product, from here you can create Features and order them by priority. This will help you manage sprints and feature sets.
+        </p>
+        @Html.ActionLink(HttpUtility.HtmlDecode("Start &raquo;"), "Index", "Projects", new { }, new { @class = "btn btn-default" })
+    </div>
+</div>

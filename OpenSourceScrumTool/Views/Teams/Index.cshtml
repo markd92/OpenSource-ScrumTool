@@ -1,0 +1,12 @@
+﻿@model OpenSourceScrumTool.Models.ViewModels.TeamsIndexViewModel
+
+@{
+    ViewBag.Title = "Teams";
+}
+
+@Html.Partial("_ColleaguesPartial", Model.ColleaguesViewModel)
+@Html.Partial("_TeamsPartial", Model.TeamsViewModel)
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

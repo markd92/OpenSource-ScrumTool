@@ -1,0 +1,35 @@
+﻿@model OpenSourceScrumTool.Models.ViewModels.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+
+    using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        <div id="socialLoginList">
+            @foreach (AuthenticationDescription p in loginProviders)
+            {
+                string authIcon = string.Empty;
+                switch (p.AuthenticationType)
+                {
+                    case "Facebook":
+                        authIcon = "fa-facebook-square";
+                        break;
+                    case "Google":
+                        authIcon = "fa-google-plus-square";
+                        break;
+                    case "Twitter":
+                        authIcon = "fa-twitter-square";
+                        break;
+                    case "Microsoft":
+                        authIcon = "fa-windows";
+                        break;
+                }
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <button type="submit" class="btn btn-primary btn-block" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account"><i class="fa fa-2x @authIcon"></i></button>
+                </div>
+            }
+        </div>
+    }
+}

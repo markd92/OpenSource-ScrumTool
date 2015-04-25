@@ -1,0 +1,42 @@
+﻿@model OpenSourceScrumTool.Models.ViewModels.TeamRemoveViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Remove Team</h3>
+</div>
+
+<div class="modal-body">
+    @if (!String.IsNullOrEmpty(Model.Error))
+    {
+        <div class="alert alert-dismissable alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Oh snap!</strong> Something went wrong.<br />
+            @Html.Raw(Model.Error)
+        </div>
+    }
+    <h2>Are you sure you want to remove this team?</h2>
+    <div class="form-horizontal">
+        <div class="alert alert-danger">
+            <strong>Warning:</strong> this will prevent anyone from this team accessing any of the projects the team is assigned to!
+        </div>
+    </div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamName)
+        </dd>
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-footer">
+        <a class="btn btn-default" href="@Url.Action("EditTeam", new { id = @Model.Id })" data-modal>No</a>
+        <input class="btn btn-danger" type="submit" value="Yes" />
+    </div>
+}

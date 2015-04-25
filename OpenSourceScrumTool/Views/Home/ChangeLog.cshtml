@@ -1,0 +1,20 @@
+﻿@model OpenSourceScrumTool.Models.ViewModels.HomeChangeLogViewModels
+
+@{
+    ViewBag.Title = "Changelog";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+@foreach (var change in Model.Changes.OrderByDescending(log => log.Version))
+{
+    <hr />
+    <h4>Version @change.Version</h4>
+    <p>@change.MajorFeature</p>
+    <ul>
+        @foreach (var item in change.Changes)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}

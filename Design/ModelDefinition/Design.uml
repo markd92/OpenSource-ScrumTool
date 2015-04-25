@@ -1,0 +1,1838 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="1fda8019-7496-4a5c-bb7f-399a07bf829b"
+  name="Design" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="a982f933-26b7-458e-9015-225633bd2b86">
+      <profileInstance
+        Id="e0e8a8cf-0844-4d62-9d02-21b6df4bb8d5"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="7c2409b8-24f3-4ada-b985-b7475dea2bc5"
+        LastKnownName="OpenSourceScrumTool"
+        LastKnownLocation="Package_1144.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ef5e03ee-04dc-4290-954b-f063f8f610cb"
+        LastKnownName="System"
+        LastKnownLocation="Package2_1144.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="cb323ae2-1dc8-4552-a816-fa6fbc2765f4"
+        LastKnownName="Microsoft"
+        LastKnownLocation="Package4_1146.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="736fcd8f-8074-4a70-853d-d97ca09c5158"
+        name="Owner"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8fea564a-ec53-4839-9385-d6d17c8c050d"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Create Projects"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="5cc48dbd-5c2b-4c63-aee9-7c8d4fd82222"
+              LastKnownName="Create Projects"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e5c3203a-6218-42df-8057-133b04e29d98"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2a831ea8-67f2-40a0-a6b9-24b7a77fb86a"
+                  name="Create Projects"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="612b7d51-8021-47be-9a33-5dbe6bc57793"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Edit Project"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ed1604eb-bc71-4a22-a361-9e3a37d14ad9"
+              LastKnownName="Edit Project"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5cfcc7c9-d36c-4c8e-b080-289dc409f5ca"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c8299c94-6787-4402-9533-f51e1ce300ee"
+                  name="Edit Project"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a9ba816b-f036-4bba-8f77-e40b8a1e8df0"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Delete Project"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c532d075-9ae8-4401-9168-34ad72e64f8a"
+              LastKnownName="Delete Project"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="33b8d91d-6ed1-4ab4-92e9-b14d4b34b73f"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e3961768-b751-40b2-b71b-b3ed42cc6dd7"
+                  name="Delete Project"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="596e1d9b-1472-4e7b-b9cb-cfb38ae68aa3"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Manage User Access"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="bccb0b84-67e4-4516-80b9-001e427613fb"
+              LastKnownName="Manage User Access"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="79fb7d5b-6bbb-4a80-bd61-ff35c700777f"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b43a99f8-639b-4c44-9e4a-8c192a7d9277"
+                  name="Manage User Access"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3a1edd3c-9409-4a1c-86bd-c4a35818d255"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Create Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7b41dec7-be6f-4bcc-9865-0b3757b1307d"
+              LastKnownName="Create Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5edd611e-eb60-4fe7-a030-59a612cd8f5e"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5c82eb47-d34e-40c5-a43a-dfa7af14a5b1"
+                  name="Create Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="83f12bfc-e12c-4470-add0-85f5ff6951fe"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Edit Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fedc938f-3ead-4abd-a6ce-500bdddd98ff"
+              LastKnownName="Edit Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4d2da8ec-30b5-44b4-b8f5-d2bb971ef65b"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4f79d512-dd68-4f68-be2a-78bf79fbae1d"
+                  name="Edit Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a0d64591-e5fe-4eff-ba64-e10a8e724272"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Delete Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="85ef939c-6f72-446a-886b-d5afe7a16c4e"
+              LastKnownName="Delete Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ba8abf9d-09d6-41d2-90b2-cd31d1629c46"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="27450da9-ba8e-4be7-a09a-869e2f7f7d34"
+                  name="Delete Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8e189e8c-dab2-4d72-943c-2383caafc505"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Order Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="03aa2297-d73f-4776-b4aa-9b2d3e85d618"
+              LastKnownName="Order Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aa3939ab-1c58-4ab6-a5d6-6e8e9efa288d"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="26cbbe31-51fa-4c33-96f5-4fd866424643"
+                  name="Order Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="883a6871-1673-4652-8bd3-da489c480e34"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Change Task Status"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f7a9b0f9-293c-449b-bdab-31b0c870291b"
+              LastKnownName="Change Task Status"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bdc79d4b-33ee-431c-8b77-0982e07cb04c"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="640e1665-2c75-439f-99a3-554bc2b8843e"
+                  name="Change Task Status"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ac4cf6f6-3433-48fa-a06b-b48a9d5c6aa6"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Delete Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="53c61477-6fb4-4760-898c-736aa04e6929"
+              LastKnownName="Delete Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8ba00df5-b0a4-408f-8b16-0a9de6c8a8c4"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6c0ea590-9d4b-4ece-9c87-c40adaace7ba"
+                  name="Delete Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="27fe4194-2abb-4428-9795-c91226b59ce0"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Order Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="5c3da6f4-c926-4c28-9817-2d6c3fc3da6d"
+              LastKnownName="Order Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5e7d2b3f-ee15-43a5-943a-938fbc01ae72"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dd010fa7-8350-46cc-8ee6-aa3e225adeb1"
+                  name="Order Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f07b2348-c329-4b66-9fb6-2bb49ff8fd25"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Edit Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8e4ce50e-780b-40a0-9917-a9d0fcb6201b"
+              LastKnownName="Edit Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9cde3840-9bc1-46e4-adeb-bed6eb89c42c"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f922d144-ba40-419b-a58c-828710bd540d"
+                  name="Edit Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d63d4867-86ba-4d15-805f-12e4a5c127e9"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Create Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="16b40902-b249-4de3-bc7d-3b95a5c64c52"
+              LastKnownName="Create Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c4829193-f941-4567-89ad-7a5b96aa2bc8"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a79f18c4-178b-4418-a0c7-cc7b4a7e27b0"
+                  name="Create Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="0eeff126-512f-4b56-bbf3-ef6a4f37c7f6"
+            isDerived="false"
+            sourceEndRoleName="Manager"
+            targetEndRoleName="Change Feature Status"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="040d232e-9b8c-454f-920e-6464353c8242"
+              LastKnownName="Change Feature Status"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b78612c8-d105-4480-864e-b3dc6bbbfc27"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4abae5aa-4b25-46c0-b737-1182a9bd6fe1"
+                  name="Change Feature Status"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2f115c27-2d4b-40b3-805b-00a63b23c699"
+            isDerived="false"
+            sourceEndRoleName="Owner"
+            targetEndRoleName="View Projects"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9aeae5a5-92f4-4b38-bfb7-e77062aa0652"
+              LastKnownName="View Projects"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d5672e30-55e6-4ee2-8c26-3ef7ccd52632"
+                  name="Owner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8dd90c14-4254-4745-9029-a8cd44ac1975"
+                  name="View Projects"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="51360669-0bcc-403f-add7-1a3d56e3ff01"
+            isDerived="false"
+            sourceEndRoleName="Owner"
+            targetEndRoleName="View Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b9dd9a52-ac27-4f9c-a31f-b881a88e770f"
+              LastKnownName="View Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bfd92036-8959-4738-b3cf-983234bcafa8"
+                  name="Owner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="995e38ce-3d94-42b2-91c8-fe5b9a147804"
+                  name="View Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="34716c77-a96a-4b51-82e9-58631bf69047"
+            isDerived="false"
+            sourceEndRoleName="Owner"
+            targetEndRoleName="View Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d593a233-8f4b-4cbf-878a-0a717343dccb"
+              LastKnownName="View Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bb27f5cf-f3d5-46d3-b385-f68d29793d57"
+                  name="Owner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f54b4c10-1d25-4dc1-a62f-8a924b80aa28"
+                  name="View Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="e2fd88b7-8b23-4278-83fe-380dc88fe66f"
+        name="Full Access"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="79cc592a-1436-47f8-8730-f4b1561d5ab8"
+            isDerived="false"
+            sourceEndRoleName="Developer"
+            targetEndRoleName="Create Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7b41dec7-be6f-4bcc-9865-0b3757b1307d"
+              LastKnownName="Create Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7d340470-4a15-4b0a-9c04-5c77a4a01d02"
+                  name="Developer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d34a9f5b-4d54-46a9-a0ae-202b96d8b6b7"
+                  name="Create Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9e4096a3-e809-4f4a-949b-da5ebaf77ac1"
+            isDerived="false"
+            sourceEndRoleName="Developer"
+            targetEndRoleName="Edit Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fedc938f-3ead-4abd-a6ce-500bdddd98ff"
+              LastKnownName="Edit Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b6390586-0c22-4d19-be02-264a37548b55"
+                  name="Developer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a28314cd-ec0d-4977-a384-8accdab4510c"
+                  name="Edit Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="62566225-931e-49a3-a5dd-d20ae73c8b9a"
+            isDerived="false"
+            sourceEndRoleName="Developer"
+            targetEndRoleName="Delete Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="85ef939c-6f72-446a-886b-d5afe7a16c4e"
+              LastKnownName="Delete Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3a32872b-ba38-4503-8621-f27019690793"
+                  name="Developer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e1e9d756-ef61-4ddc-8891-90a20b2f288b"
+                  name="Delete Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c6338854-6ff1-4b5e-8d12-44123a6cd14a"
+            isDerived="false"
+            sourceEndRoleName="Developer"
+            targetEndRoleName="Order Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="03aa2297-d73f-4776-b4aa-9b2d3e85d618"
+              LastKnownName="Order Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="63dd32e7-d8c6-47c2-ad63-9c22c0218ddd"
+                  name="Developer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3e71b4b7-ec16-4ece-b473-aae20de1a965"
+                  name="Order Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="708cbcae-dc07-438d-aff6-ba2d4f1c6e14"
+            isDerived="false"
+            sourceEndRoleName="Developer"
+            targetEndRoleName="Change Task Status"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f7a9b0f9-293c-449b-bdab-31b0c870291b"
+              LastKnownName="Change Task Status"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="438e443c-bb39-4129-bb3a-907dfd5d74e0"
+                  name="Developer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1730b727-5936-43ac-b5db-eab97c618715"
+                  name="Change Task Status"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="4e6365be-5d07-435d-93be-df4a294f2294"
+            isDerived="false"
+            sourceEndRoleName="Developer"
+            targetEndRoleName="Delete Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="53c61477-6fb4-4760-898c-736aa04e6929"
+              LastKnownName="Delete Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b07481ff-45ee-4d57-96b7-f20040ff70cf"
+                  name="Developer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1236bc1c-255a-4b09-b038-289e6ea74d3a"
+                  name="Delete Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d09dcc0d-41d3-4907-88b2-1308af65435f"
+            isDerived="false"
+            sourceEndRoleName="Developer"
+            targetEndRoleName="Edit Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8e4ce50e-780b-40a0-9917-a9d0fcb6201b"
+              LastKnownName="Edit Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9101d19d-9675-41ab-aed7-cac3f4f82658"
+                  name="Developer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7baed1ef-4003-47e8-87cc-121969d3a160"
+                  name="Edit Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e7433fe8-2069-46ab-a027-8a14605adef9"
+            isDerived="false"
+            sourceEndRoleName="Developer"
+            targetEndRoleName="Change Feature Status"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="040d232e-9b8c-454f-920e-6464353c8242"
+              LastKnownName="Change Feature Status"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="074a1e04-15b0-45a8-b29d-c1dac55b4fa8"
+                  name="Developer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="346ef30c-b1fb-44a2-af48-eef6c1dd5c75"
+                  name="Change Feature Status"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3d17a1d6-2d50-4b61-aa0d-34e978064b59"
+            isDerived="false"
+            sourceEndRoleName="Developer"
+            targetEndRoleName="Order Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="5c3da6f4-c926-4c28-9817-2d6c3fc3da6d"
+              LastKnownName="Order Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fbe15144-0a8c-4707-95d1-2201149fba46"
+                  name="Developer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9ad716ad-0deb-4660-ab8a-0428a557d41f"
+                  name="Order Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="4c0800cc-aa14-41e0-bf78-08a98c085c5d"
+            isDerived="false"
+            sourceEndRoleName="Developer"
+            targetEndRoleName="Create Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="16b40902-b249-4de3-bc7d-3b95a5c64c52"
+              LastKnownName="Create Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f461cd71-1a84-49a6-8660-f6ebf62a0475"
+                  name="Developer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1159d412-7699-4662-84b7-217ca5b62ae2"
+                  name="Create Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="63c41bf1-4048-4884-aa5b-04aff3949db9"
+            isDerived="false"
+            sourceEndRoleName="Full Access"
+            targetEndRoleName="View Projects"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9aeae5a5-92f4-4b38-bfb7-e77062aa0652"
+              LastKnownName="View Projects"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e456bd1a-3e1a-4626-9636-84adcc2be99d"
+                  name="Full Access"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d97ebe95-bf2b-448f-a4ef-f9bc22dd8749"
+                  name="View Projects"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="020f17f7-48a8-44e9-be4f-0131b1728d99"
+            isDerived="false"
+            sourceEndRoleName="Full Access"
+            targetEndRoleName="View Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b9dd9a52-ac27-4f9c-a31f-b881a88e770f"
+              LastKnownName="View Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b2f4a751-bec5-4de9-92e8-1861bcb08720"
+                  name="Full Access"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="22992e2a-b8df-4c32-a3bd-66634060bffd"
+                  name="View Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c9dbfdd2-7289-4834-860a-3dc51f23b83e"
+            isDerived="false"
+            sourceEndRoleName="Full Access"
+            targetEndRoleName="View Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d593a233-8f4b-4cbf-878a-0a717343dccb"
+              LastKnownName="View Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b8de49fa-151e-443b-8c5c-802631292a01"
+                  name="Full Access"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c2de4c71-161b-47aa-b2b9-6c5bbbbe98b5"
+                  name="View Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="94ea3dff-976f-4008-b02e-8129c39d1aef"
+        name="Limied Access"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="32a5064e-3482-4611-a990-3ee368e4fba2"
+            isDerived="false"
+            sourceEndRoleName="Product Owner"
+            targetEndRoleName="Order Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="03aa2297-d73f-4776-b4aa-9b2d3e85d618"
+              LastKnownName="Order Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e8883f49-2467-4c88-90a3-39fd667e84da"
+                  name="Product Owner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ae1dd8de-6e4a-4c7e-808f-7fffd3f2c774"
+                  name="Order Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9323403b-fdb3-4f75-a27c-f92a7921c92e"
+            isDerived="false"
+            sourceEndRoleName="Product Owner"
+            targetEndRoleName="Delete Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="85ef939c-6f72-446a-886b-d5afe7a16c4e"
+              LastKnownName="Delete Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9dd25c59-dacf-41db-9350-0b8e0d823579"
+                  name="Product Owner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9263e94d-0de5-4d20-a03c-118e73d13a7b"
+                  name="Delete Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="de6e2197-604c-445a-9392-c96ef940ee6b"
+            isDerived="false"
+            sourceEndRoleName="Product Owner"
+            targetEndRoleName="Edit Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fedc938f-3ead-4abd-a6ce-500bdddd98ff"
+              LastKnownName="Edit Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0d47efa0-9f9e-4026-98cd-07a004e6875d"
+                  name="Product Owner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4cb86dcf-fdd3-4112-9c0c-56306bd80b6c"
+                  name="Edit Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="73cb73c3-3b8e-4921-a659-25455f9a5c45"
+            isDerived="false"
+            sourceEndRoleName="Product Owner"
+            targetEndRoleName="Create Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7b41dec7-be6f-4bcc-9865-0b3757b1307d"
+              LastKnownName="Create Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e2c619aa-2815-40f9-9420-189b79e8c3dc"
+                  name="Product Owner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7b54aaec-1485-4711-96ef-6065f73a5200"
+                  name="Create Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="acdefeb6-16d3-4dba-aa38-44e08b5d5f58"
+            isDerived="false"
+            sourceEndRoleName="Product Owner"
+            targetEndRoleName="Change Feature Status"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="040d232e-9b8c-454f-920e-6464353c8242"
+              LastKnownName="Change Feature Status"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6da83d51-da17-476b-a80e-71c33c9a1d44"
+                  name="Product Owner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0df7df5f-7084-431a-9645-1cb4634e7025"
+                  name="Change Feature Status"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1a34519e-ab74-4e7f-b0f1-ae42e1afb92e"
+            isDerived="false"
+            sourceEndRoleName="Limied Access"
+            targetEndRoleName="View Projects"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9aeae5a5-92f4-4b38-bfb7-e77062aa0652"
+              LastKnownName="View Projects"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="93e571e7-9143-479e-9ec7-ef727290471f"
+                  name="Limied Access"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bf542828-a6ce-40c3-aee5-17db29ca1aaa"
+                  name="View Projects"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="0ecd8df0-8ce7-4066-b4e4-9cd272e3634e"
+            isDerived="false"
+            sourceEndRoleName="Limied Access"
+            targetEndRoleName="View Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b9dd9a52-ac27-4f9c-a31f-b881a88e770f"
+              LastKnownName="View Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5baee75e-adcc-415b-be33-6b498c0948cd"
+                  name="Limied Access"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="641af446-1656-48e5-a342-aef10d7dd44d"
+                  name="View Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="4ce48cf0-e28c-43b3-8084-12bd4c4f59d4"
+            isDerived="false"
+            sourceEndRoleName="Limied Access"
+            targetEndRoleName="View Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d593a233-8f4b-4cbf-878a-0a717343dccb"
+              LastKnownName="View Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f00c77c1-a019-4d5b-a58a-1cdd354e94fc"
+                  name="Limied Access"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1d578ce4-1bf8-49ba-a038-5e96625972c5"
+                  name="View Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5cc48dbd-5c2b-4c63-aee9-7c8d4fd82222"
+        name="Create Projects"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bccb0b84-67e4-4516-80b9-001e427613fb"
+        name="Manage User Access"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="0bfc3063-cadf-4863-92be-34fe754fba90"
+        name="Actor1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d9b2b814-83c9-41f2-8ea6-6c1b62c4c396"
+        name="Edit this User"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ed1604eb-bc71-4a22-a361-9e3a37d14ad9"
+        name="Edit Project"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c532d075-9ae8-4401-9168-34ad72e64f8a"
+        name="Delete Project"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7b41dec7-be6f-4bcc-9865-0b3757b1307d"
+        name="Create Features"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fedc938f-3ead-4abd-a6ce-500bdddd98ff"
+        name="Edit Features"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="85ef939c-6f72-446a-886b-d5afe7a16c4e"
+        name="Delete Features"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="03aa2297-d73f-4776-b4aa-9b2d3e85d618"
+        name="Order Features"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="16b40902-b249-4de3-bc7d-3b95a5c64c52"
+        name="Create Tasks"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8e4ce50e-780b-40a0-9917-a9d0fcb6201b"
+        name="Edit Tasks"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="53c61477-6fb4-4760-898c-736aa04e6929"
+        name="Delete Tasks"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f7a9b0f9-293c-449b-bdab-31b0c870291b"
+        name="Change Task Status"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5c3da6f4-c926-4c28-9817-2d6c3fc3da6d"
+        name="Order Tasks"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="040d232e-9b8c-454f-920e-6464353c8242"
+        name="Change Feature Status"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="622e72e5-8493-4971-bfc3-ccdad9bfa2f3"
+        name="View Only"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="56a905ef-c809-492d-b5a3-e477a0d15682"
+            isDerived="false"
+            sourceEndRoleName="View Only"
+            targetEndRoleName="View Projects"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9aeae5a5-92f4-4b38-bfb7-e77062aa0652"
+              LastKnownName="View Projects"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4ea11e12-6927-4a8c-83d3-fe856030c2cf"
+                  name="View Only"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d50ee709-88fe-4d1b-aa4c-cfe87d6ccb02"
+                  name="View Projects"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="93877e1a-5f95-4db0-8d63-9046611cb80a"
+            isDerived="false"
+            sourceEndRoleName="View Only"
+            targetEndRoleName="View Features"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b9dd9a52-ac27-4f9c-a31f-b881a88e770f"
+              LastKnownName="View Features"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="75813a02-d4d1-435e-af93-9f898d6899c0"
+                  name="View Only"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5d95e372-2f92-4656-993d-2cdf9a9f6a19"
+                  name="View Features"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f16b6000-1060-449b-aa77-47a3314c261b"
+            isDerived="false"
+            sourceEndRoleName="View Only"
+            targetEndRoleName="View Tasks"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d593a233-8f4b-4cbf-878a-0a717343dccb"
+              LastKnownName="View Tasks"
+              LastKnownLocation="Design.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="07b1ead6-976c-41b8-8f52-009e5f53d413"
+                  name="View Only"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="412a0b8f-007b-49bc-bc66-85ee3f1dac01"
+                  name="View Tasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9aeae5a5-92f4-4b38-bfb7-e77062aa0652"
+        name="View Projects"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b9dd9a52-ac27-4f9c-a31f-b881a88e770f"
+        name="View Features"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d593a233-8f4b-4cbf-878a-0a717343dccb"
+        name="View Tasks"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

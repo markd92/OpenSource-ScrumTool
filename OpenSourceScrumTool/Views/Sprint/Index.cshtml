@@ -1,0 +1,113 @@
+﻿@using OpenSourceScrumTool.Extensions
+@using OpenSourceScrumTool.Hubs
+@using OpenSourceScrumTool.Models
+@using OpenSourceScrumTool.Models.ViewModels
+@using WebGrease.Css.Extensions
+@model OpenSourceScrumTool.Models.ViewModels.SprintIndexViewModel
+
+@{
+    ViewBag.Title = "Sprint Board";
+}
+
+<div id="ScrumBoard">
+    <h2>Sprint Board</h2>
+
+    <!-- ko if: Projects().length == 0 -->
+    <div class="alert alert-info">
+        <p>You arn't part of any teams with active projects.</p>
+    </div>
+    <!-- /ko -->
+
+    <!-- ko foreach: Projects -->
+    <div class="panel panel-default panel-dismissable" data-bind="attr: { 'data-panel-details': 'project-' + ProjectId() }">
+        <div class="panel-heading">
+            <span data-bind="text: ProjectName"></span>&nbsp;
+            (Sprint <span data-bind="text: SprintItteration"></span>)
+            <button type="button" class="close" data-dismiss="panel">×</button>
+            <button type="button" class="close show-btn" style="display: none;"><span class="caret"></span></button>
+        </div>
+
+        <div class="panel-body">
+            <!-- ko if: Features().length == 0 -->
+            <div class="alert alert-info">
+                <p>
+                    There isn't any features set for this sprint, click <a data-bind="attr: { href: '@Url.Action("Index", "Features")?id=' + ProjectId() }">here</a> to go to planning.
+                </p>
+            </div>
+            <!-- /ko -->
+
+            <table class="table table-condensed table-bordered" style="width: 100%; table-layout: fixed;" data-bind="if: Features().length > 0">
+                <thead>
+                    <tr style="width: 25%;">
+                        <th>&nbsp;</th>
+                        <th>@EnumTaskState.NotStarted.DisplayName()</th>
+                        <th>@EnumTaskState.InProgress.DisplayName()</th>
+                        <th>@EnumTaskState.Done.DisplayName()</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: Features">
+                    <tr style="width: 25%;">
+                        <td>
+                            <div class="clearfix">
+                                <div class="pull-right">
+                                    <a data-bind="attr: { href: '@Url.Action("Create", "Tasks")/' + FeatureId()}" data-modal class="btn btn-primary btn-sm">Add Task</a>
+                                </div>
+                                <span data-bind="text: FeatureName"></span>
+                            </div>
+                            <p>
+                                <small data-bind="html: FeatureDescription"></small>
+                            </p>
+                        </td>
+                        @TaskList(EnumTaskState.NotStarted)
+                        @TaskList(EnumTaskState.InProgress)
+                        @TaskList(EnumTaskState.Done)
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>
+
+@helper TaskList(EnumTaskState state)
+{
+    <td>
+        <ul class="sort-list sprint-list" data-bind="attr : { 'data-feature' : FeatureId }"
+            data-columnstate="@Html.Raw((int)state)" data-state="@state.ToString()" data-ordersave="SaveTaskOrderState">
+            <!-- ko foreach: @Html.Raw("Tasks" + state.ToString()) -->
+            <li class="item" data-bind="attr : { 'data-id' : Id }">
+                <div class="pull-right">
+                    <a data-bind="attr: { href: '@Url.Action("Edit", "Tasks")/' + Id()}" data-modal class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                </div>
+                <span data-bind="text: Title"></span>
+            </li>
+            <!-- /ko -->
+        </ul>
+    </td>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Scrum/SprintBoard.js")
+}
+
+@* ReSharper disable once StringLiteralWrongQuotes *@
+<script type="text/javascript">
+    (function(window, $, undefined) {
+        //Serialise model into json string
+        @{
+            Model.Projects.SelectMany(m => m.Features).ForEach(f => f.FeatureName = HttpUtility.JavaScriptStringEncode(f.FeatureName));
+            Model.Projects.SelectMany(m => m.Features).ForEach(f => f.FeatureDescription = HttpUtility.JavaScriptStringEncode(f.FeatureDescription));
+            Model.Projects.SelectMany(m => m.Features).SelectMany(m => m.TasksNotStarted).ForEach(i => i.Title = HttpUtility.JavaScriptStringEncode(i.Title));
+            Model.Projects.SelectMany(m => m.Features).SelectMany(m => m.TasksInProgress).ForEach(i => i.Title = HttpUtility.JavaScriptStringEncode(i.Title));
+            Model.Projects.SelectMany(m => m.Features).SelectMany(m => m.TasksDone).ForEach(i => i.Title = HttpUtility.JavaScriptStringEncode(i.Title));
+            Model.Projects.SelectMany(m => m.Features).SelectMany(m => m.TasksNotStarted).ForEach(i => i.Description = HttpUtility.JavaScriptStringEncode(i.Description));
+            Model.Projects.SelectMany(m => m.Features).SelectMany(m => m.TasksInProgress).ForEach(i => i.Description = HttpUtility.JavaScriptStringEncode(i.Description));
+            Model.Projects.SelectMany(m => m.Features).SelectMany(m => m.TasksDone).ForEach(i => i.Description = HttpUtility.JavaScriptStringEncode(i.Description));
+        }
+        var modelJson = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        //Parse model to apply and start monitoring
+        var obj = window.Scrum.LiveUpdate.ParseJson(modelJson);
+        window.Scrum.LiveUpdate.UpdateData("@ViewModelDataType.Sprint.DisplayName()", "@ActionType.Index.DisplayName()", obj);
+    })(window, jQuery.noConflict());
+</script>

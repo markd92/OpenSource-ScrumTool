@@ -1,0 +1,97 @@
+﻿@using OpenSourceScrumTool.Extensions
+@using OpenSourceScrumTool.Hubs
+@using OpenSourceScrumTool.Models.DataModels
+@model OpenSourceScrumTool.Models.ViewModels.ProjectIndexViewModel
+
+@{
+    ViewBag.Title = "Projects";
+}
+
+<div class="panel panel-primary" id="ProjectsPanel">
+    <div class="panel-heading">Projects</div>
+
+    <div class="panel-body pull-right">
+        @Html.ActionLink("Add", "Create", "Projects", null, new { data_modal = "", id = "btnCreate", @class = "btn btn-primary" })
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div data-bind="if: @Html.NameFor(m => m.Projects)@Html.Raw("().length > 0")">
+        <ul class="table table-bordered table-hover sort-list" data-ordersave="SaveProjectOrder" data-bind="foreach: Projects" @* TODO: Change to sorted list *@>
+            <li class="item" data-bind="attr : { 'data-id': Id }">
+                <div class="clearfix" style="min-height: 50px;">
+                    <div class="list-menu">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                @* Referring to an index method ignores the /Index part so we need to add it manually *@
+                                <li><a data-bind="attr: { href: '@Url.Action("Index", "Features")' + '/Index/' + Id() }" class="manage-btn"><i class="fa fa-list"></i> Features</a></li>
+                                <li><a data-bind="attr: { href: '@Url.Action("Edit")/' + Id() }" data-modal><i class="fa fa-pencil"></i> Edit</a></li>
+                                <li><a data-bind="attr: { href: '@Url.Action("SprintSettings", "Sprint")/' + Id() }" data-modal><i class="fa fa-wrench"></i> Manage Sprints</a></li>
+                                <li class="divider"></li>
+                                <li><a data-bind="attr: { href: '@Url.Action("Delete")/' + Id() }" data-modal><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="margin-left: 47px;">
+                        <div class="col-xs-7 col-sm-9 col-md-10 col-lg-10" data-bind="text: Title"></div>
+                        <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2 pull-right text-right">
+                            <div>
+                                <span>
+                                    <i class="fa fa-list-ul visible-xs-inline"></i>
+                                    <span data-bind="text: FeaturesCount"></span>
+                                    <span class="hidden-xs">Feature<span data-bind="if: FeaturesCount() != 1">s</span></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="text-muted">
+                                <small data-bind="html: Description"></small>
+                            </div>
+                        </div>
+                        <div class="col-md-12 hidden-xs" data-bind="if: FeaturesCount() > 0">
+                            <div class="progress" style="margin-bottom: 5px; margin-top: 5px;">
+                                <div class="progress-bar progress-bar-success" data-bind="style : { width: DoneTasksPercentage() + '%' }">
+                                    <span data-bind="if: DoneTasksPercentage() > 5"><span data-bind="text: Math.round(DoneTasksPercentage()) + '%'"></span></span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" data-bind="style : { width: InProgressTasksPercentage() + '%' }">
+                                    <span data-bind="if: InProgressTasksPercentage() > 5"><span data-bind="text: Math.round(InProgressTasksPercentage()) + '%'"></span></span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" data-bind="style : { width: NotStartedTasksPercentage() + '%' }">
+                                    <span data-bind="if: NotStartedTasksPercentage() > 5"><span data-bind="text: Math.round(NotStartedTasksPercentage()) + '%'"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-body" data-bind="if: @Html.NameFor(m => m.Projects)@Html.Raw("().length == 0")">
+        <div class="alert alert-info">
+            <strong>Heads up!</strong> You haven't created any projects yet.
+            <br />You can do this by clicking the Add button above.
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@* ReSharper disable once StringLiteralWrongQuotes *@
+<script type="text/javascript">
+    (function (window, $, undefined) {
+        //Serialise model into json string
+        @{
+            Model.Projects.ForEach(model => model.Title = HttpUtility.JavaScriptStringEncode(model.Title));
+            Model.Projects.ForEach(model => model.Description = HttpUtility.JavaScriptStringEncode(model.Description));
+        }
+        var modelJson = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))';
+        //Parse model to apply and start monitoring
+        var obj = window.Scrum.LiveUpdate.ParseJson(modelJson);
+        window.Scrum.LiveUpdate.UpdateData("@ViewModelDataType.Project.DisplayName()", "@ActionType.Index.DisplayName()", obj);
+    })(window, jQuery.noConflict());
+</script>

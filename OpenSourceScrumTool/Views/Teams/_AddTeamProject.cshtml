@@ -1,0 +1,48 @@
+﻿@model OpenSourceScrumTool.Models.ViewModels.AddTeamProjectViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Add Team Project</h3>
+</div>
+
+<div class="modal-body" style="padding-bottom: 0;">
+    <div class="alert alert-danger" style="display: none;" id="ErrorMessageAlert">
+        <strong>Oh snap!</strong> Something went wrong.<br />
+        <div id="ErrorMessageText"></div>
+    </div>
+
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.TeamName)
+    </div>
+
+    <div class="col-md-8">
+        @Model.TeamName
+    </div>
+
+    @if (!Model.Projects.Any())
+    {
+        <div class="clearfix"></div>
+        <div class="alert alert-info">You don't have any projects or they are all already assigned to this team, add one in the projects page.</div>
+    }
+
+    @foreach (var project in Model.Projects)
+    {
+        <div class="col-md-12">
+            <div class="col-md-8">
+                @project.ProjectName
+            </div>
+            <div class="col-md-4 text-center" style="padding-top: 5px;">
+                <a href="@Url.Action("AddTeamProject", new { teamId = @Model.Id, projectId = project.ProjectId })" data-ajax data-ajax-type="POST"><i class="fa fa-plus-circle"></i></a>
+                <span class="ajax-loading" style="display: none;"><i class="fa fa-spinner fa-spin fa-2x"></i></span>
+                <span class="ajax-success text-success" style="display: none;"><i class="fa fa-check-circle fa-2x"></i></span>
+                <span class="ajax-error text-danger" style="display: none;"><i class="fa fa-times-circle fa-2x"></i></span>
+            </div>
+        </div>
+    }
+
+    <div class="clearfix"></div>
+</div>
+
+<div class="modal-footer">
+    <a class="btn btn-default" href="@Url.Action("EditTeam", new { id = @Model.Id })" data-modal>Back</a>
+</div>

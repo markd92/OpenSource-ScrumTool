@@ -1,0 +1,53 @@
+﻿@model OpenSourceScrumTool.Models.ViewModels.SprintSettingsViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Manage Sprints</h4>
+</div>
+
+<div class="modal-body" style="padding-bottom: 0;">
+    <div id="addResult"></div>
+    @if (!string.IsNullOrEmpty(Model.Error))
+    {
+        <div class="alert alert-dismissable alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Oh snap!</strong> Something went wrong.<br />
+            @Html.Raw(Model.Error)
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(Model.Info))
+    {
+        <div class="alert alert-dismissable alert-info">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Yay!</strong>
+            @Html.Raw(Model.Info)
+        </div>
+    }
+
+    @Html.Partial("_SprintSettingsForm", Model.FormViewModel)
+
+</div>
+
+<div class="modal-header" style="padding-top: 5px;">
+    <h4 class="modal-title">Sprints</h4>
+</div>
+
+<div class="modal-body">
+    <div id="sprints_list_area" data-update-url="@Url.Action("SprintsListArea", null, new { id = Model.Id }, this.Request.Url.Scheme)">
+        @Html.Partial("_SprintSettingsTable", Model.TableViewModel)
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn" data-dismiss="modal">Close</button>
+</div>
+
+
+<script>
+    try {
+        window.Scrum.Sprint.BindDialogEvent(document);
+    } catch (e) {
+        console.log(e);
+    }
+</script>
